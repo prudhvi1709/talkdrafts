@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI as Your Co-Developer — Prudhvi Krovvidi</title>
+  <!-- Reveal.js from CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/black.css" id="theme">
+  <style>
+    .reveal section { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    .reveal h1, .reveal h2 { line-height: 1.05; }
+    h1 { font-size: 3.2rem; }
+    h2 { font-size: 2.2rem; }
+    p, li { font-size: 1.6rem; }
+    .small { font-size: 1.1rem; opacity: 0.85 }
+    .reveal .slides section { padding: 2.4rem; }
+    .link { text-decoration: underline; }
+    .callout { font-weight: 700; font-size:1.8rem; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title -->
+      <section>
+        <h1>AI as Your Co-Developer</h1>
+        <h2>Automating Schemas, Quality Checks, Ingestion & Hypothesis Testing</h2>
+        <p class="small">Prudhvi Krovvidi — Data Scientist, Gramener</p>
+        <p class="small">30 min • Experiential talk + live demos</p>
+        <aside class="notes">
+          <strong>Opening (2 min):</strong>
+          • Introduce yourself: Data Scientist at Gramener, first conference talk
+          • Thank organizers and audience
+          • Set expectations: "I'll show you two AI tools I built that generate production-ready code"
+          • "These aren't just demos - they output real DBT models and statistical tests"
+          • "You'll see live demos of both tools in action"
+        </aside>
+      </section>
+
+      <!-- Framing -->
+      <section>
+        <h2>Framing: Beyond Autocomplete</h2>
+        <ul>
+          <li>AI now helps design pipelines, tests, and reasoning — not just snippets.</li>
+          <li>Goal: show end-to-end experiments that are deployable and useful.</li>
+        </ul>
+        <aside class="notes">
+          <strong>Framing (3 min):</strong>
+          • "Most people think AI coding = autocomplete, but I want to show you something different"
+          • "Today's AI can design entire data pipelines, not just write snippets"
+          • "I'll show you AI that generates DBT models, statistical tests, and ER diagrams"
+          • "These tools output production-ready artifacts that data teams actually use"
+          • "The goal: show end-to-end experiments that are deployable and useful"
+        </aside>
+      </section>
+
+      <!-- Agenda / Timeline -->
+      <section>
+        <h2>Agenda (30 min)</h2>
+        <ol>
+          <li>Framing — 5m</li>
+          <li>Demo: SchemaForge — 10m</li>
+          <li>Demo: Hypothesis Forge — 10m</li>
+          <li>Reflections & Q&A — 5m</li>
+        </ol>
+        <aside class="notes">
+          <strong>Agenda (1 min):</strong>
+          • "I'll keep this tight - 30 minutes total"
+          • "5 minutes of framing, then two 10-minute live demos"
+          • "Each demo shows a different aspect: data engineering vs. data science"
+          • "SchemaForge: generates DBT models and schemas"
+          • "Hypothesis Forge: generates statistical tests and insights"
+          • "5 minutes for Q&A - I want your questions!"
+        </aside>
+      </section>
+
+      <!-- Takeaways -->
+      <section>
+        <h2>What you’ll take away</h2>
+        <ul>
+          <li>How AI can output DBT-ready schemas and test rules</li>
+          <li>How automated hypothesis generation accelerates analysis</li>
+          <li>Patterns & guardrails for production usage</li>
+        </ul>
+        <aside class="notes">
+          <strong>Takeaways (1 min):</strong>
+          • "By the end, you'll know how to build AI tools that generate production-ready code"
+          • "You'll see DBT models, YAML configs, and statistical tests generated automatically"
+          • "You'll understand the patterns and guardrails needed for real-world usage"
+          • "These aren't toys - they output artifacts that data teams actually deploy"
+          • "I'll show you the code, the outputs, and the lessons learned"
+        </aside>
+      </section>
+
+      <!-- SchemaForge intro -->
+      <section>
+        <h2>Demo 1 — SchemaForge</h2>
+        <ul>
+          <li>Input: raw CSV / sample data</li>
+          <li>Outputs: DBT models, test rules, ER diagram, optional Python ETL</li>
+          <li>Goal: immediately usable artifacts for pipelines</li>
+        </ul>
+        <p class="small">Repo: <a class="link" href="https://github.com/prudhvi1709/schemaforge" target="_blank">github.com/prudhvi1709/schemaforge</a></p>
+        <aside class="notes">
+          <strong>SchemaForge Intro (2 min):</strong>
+          • "First demo: SchemaForge - turns messy CSVs into production-ready data pipelines"
+          • "Input: raw CSV files, JSON data, or database samples"
+          • "Output: DBT models, YAML configs, ER diagrams, and Python ETL code"
+          • "Built for data engineers who start with messy CSVs and need structured schemas"
+          • "Live demo: I'll show you a real CSV → DBT model transformation"
+          • "Key insight: AI can understand data patterns and generate proper schemas"
+        </aside>
+      </section>
+
+      <!-- SchemaForge details -->
+      <section>
+        <h2>SchemaForge in Action</h2>
+        <ul>
+          <li><strong>Schema inference</strong> from CSVs / JSONs → column types, null checks</li>
+          <li><strong>DBT model auto-generation</strong> → models + YAML tests</li>
+          <li><strong>ER diagram export</strong> → quick visualization of relationships</li>
+          <li><strong>Python ETL pipelines</strong> → Pandas + SQLAlchemy ready</li>
+        </ul>
+        <aside class="notes">
+          <strong>SchemaForge Features (3 min):</strong>
+          • <strong>Schema Inference:</strong> "AI analyzes your CSV and detects column types, null patterns, relationships"
+          • <strong>DBT Model Generation:</strong> "Creates models/schema.yml with proper tests - not_null, unique, accepted_range"
+          • <strong>ER Diagram Export:</strong> "Visualizes table relationships - great for documentation"
+          • <strong>Python ETL:</strong> "Generates Pandas + SQLAlchemy code for data processing"
+          • "This saves hours of boilerplate work - normally you'd write this by hand"
+          • "Live demo: I'll show each output type with a real dataset"
+        </aside>
+      </section>
+
+      <section>
+        <h2>SchemaForge — Example Output</h2>
+        <pre><code class="small">models:
+  - name: orders
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: amount
+        tests:
+          - not_null
+          - accepted_range: {min: 0}
+</code></pre>
+        <p class="small">Auto-generated DBT YAML with constraints + tests</p>
+        <aside class="notes">
+          <strong>SchemaForge Output Demo (3 min):</strong>
+          • "This YAML is generated automatically - no hand-coding required"
+          • "AI detected that order_id should be unique and not_null"
+          • "AI inferred that amount should be >= 0 based on data patterns"
+          • "Normally, a data engineer would write this by hand - takes hours"
+          • "Live demo: I'll show the full process from CSV to this YAML"
+          • "The generated tests are production-ready and follow DBT best practices"
+        </aside>
+      </section>
+
+      <!-- Hypothesis Forge intro -->
+      <section>
+        <h2>Demo 2 — Hypothesis Forge</h2>
+        <ul>
+          <li>Input: dataset + natural language question</li>
+          <li>Process: suggest testable hypotheses → run stats tests → summarize</li>
+          <li>Outcome: interpretable evidence-backed insights</li>
+        </ul>
+        <p class="small">Repo: <a class="link" href="https://github.com/prudhvi1709/hypoforge-llmf" target="_blank">github.com/prudhvi1709/hypoforge-llmf</a></p>
+        <aside class="notes">
+          <strong>Hypothesis Forge Intro (2 min):</strong>
+          • "Now for the data science side: Hypothesis Forge"
+          • "Takes natural language questions and turns them into statistical tests"
+          • "Input: dataset + question like 'Do customers from city A spend more?'"
+          • "Process: generates formal hypotheses, runs tests, provides insights"
+          • "Output: p-values, confidence intervals, and plain-English summaries"
+          • "Live demo: I'll show a real business question → statistical analysis"
+        </aside>
+      </section>
+
+      <!-- Hypothesis Forge details -->
+      <section>
+        <h2>Hypothesis Forge in Action</h2>
+        <ul>
+          <li><strong>Question:</strong> Do customers from city A spend more than city B?</li>
+          <li><strong>Generated hypotheses:</strong>
+            <ul>
+              <li>H₀: mean spend(A) = mean spend(B)</li>
+              <li>H₁: mean spend(A) > mean spend(B)</li>
+            </ul>
+          </li>
+          <li><strong>Test:</strong> Welch’s t-test → p-value = 0.01</li>
+          <li><strong>Summary:</strong> Customers from A spend significantly more.</li>
+        </ul>
+        <aside class="notes">
+          <strong>Hypothesis Forge Workflow (3 min):</strong>
+          • <strong>Question Input:</strong> "Natural language: 'Do customers from city A spend more than city B?'"
+          • <strong>Hypothesis Generation:</strong> "AI creates formal H₀ and H₁ hypotheses automatically"
+          • <strong>Test Selection:</strong> "AI chooses the right statistical test (t-test, chi-square, etc.)"
+          • <strong>Execution:</strong> "Runs the test and calculates p-values, confidence intervals"
+          • <strong>Interpretation:</strong> "Outputs plain-English insights for business stakeholders"
+          • "Live demo: I'll show the full workflow with real data"
+        </aside>
+      </section>
+
+      <section>
+        <h2>Hypothesis Forge — Output Example</h2>
+        <pre><code class="small">Question: Do discounts improve retention?
+
+Hypotheses:
+- H₀: Retention(discounted) = Retention(non-discounted)
+- H₁: Retention(discounted) > Retention(non-discounted)
+
+Result: p = 0.032 → Reject H₀
+
+Insight: Discounts improved 3-month retention by ~7%.
+</code></pre>
+        <aside class="notes">
+          <strong>Hypothesis Forge Output Demo (3 min):</strong>
+          • "This is the actual output format - clean and actionable"
+          • "AI generated the formal hypotheses automatically"
+          • "AI chose the right statistical test and calculated p-value"
+          • "Key insight: p = 0.032 means we can reject the null hypothesis"
+          • "Business impact: 7% retention improvement is significant"
+          • "Live demo: I'll show this exact workflow with a real dataset"
+          • "This output goes directly to business stakeholders - no stats knowledge needed"
+        </aside>
+      </section>
+
+      <!-- Lessons learned / reflections -->
+      <section>
+        <h2>Reflections & Lessons</h2>
+        <ul>
+          <li>Trade-offs: speed vs. correctness; hallucination vs. structure</li>
+          <li>Reliability: guardrails (tests, validation, review loops)</li>
+          <li>Integration pattern: AI → scaffold → validate → deploy</li>
+        </ul>
+        <aside class="notes">
+          <strong>Lessons Learned (3 min):</strong>
+          • <strong>Trade-offs:</strong> "Speed vs. correctness - AI is fast but needs validation"
+          • <strong>Hallucination:</strong> "AI sometimes generates plausible but wrong code - need guardrails"
+          • <strong>Reliability:</strong> "Always validate outputs with tests, code review, and human oversight"
+          • <strong>Integration Pattern:</strong> "AI generates → scaffold → validate → deploy"
+          • "Human-in-the-loop is essential - AI accelerates, humans validate"
+          • "These tools work best as co-pilots, not replacements"
+        </aside>
+      </section>
+
+      <!-- Key Takeaways -->
+      <section>
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li>AI can produce <strong>production-ready artifacts</strong> (DBT models, ETL code)</li>
+          <li>AI can guide <strong>statistical reasoning</strong>, not just autocomplete</li>
+          <li>Guardrails + human-in-loop make it usable in real workflows</li>
+        </ul>
+        <aside class="notes">
+          <strong>Key Takeaways (2 min):</strong>
+          • <strong>Production-Ready:</strong> "AI can generate DBT models, ETL code, and statistical tests that teams actually deploy"
+          • <strong>Statistical Reasoning:</strong> "AI can guide hypothesis testing and statistical analysis, not just autocomplete"
+          • <strong>Guardrails Matter:</strong> "Human-in-the-loop validation makes AI tools reliable in production"
+          • "These aren't demos - they're tools that data teams use daily"
+          • "The pattern: AI accelerates, humans validate, teams deploy"
+        </aside>
+      </section>
+
+      <!-- Call to action and links -->
+      <section>
+        <h2>Try the Repos</h2>
+        <ul>
+          <li><a class="link" href="https://github.com/prudhvi1709/schemaforge" target="_blank">SchemaForge</a></li>
+          <li><a class="link" href="https://github.com/prudhvi1709/hypoforge-llmf" target="_blank">Hypothesis Forge</a></li>
+        </ul>
+        <aside class="notes">
+          <strong>Call to Action (1 min):</strong>
+          • "Both repos are open-source and ready to try"
+          • "SchemaForge: github.com/prudhvi1709/schemaforge"
+          • "Hypothesis Forge: github.com/prudhvi1709/hypoforge-llmf"
+          • "I'd love your feedback - this is my first talk and I want to improve"
+          • "Try them with your own datasets and let me know what works"
+          • "Questions about implementation? I'm happy to dive deeper"
+        </aside>
+      </section>
+
+      <!-- Q&A -->
+      <section>
+        <h2>Q &amp; A</h2>
+        <p class="small">Ask me about engineering trade-offs, how the tools generate artifacts, or demo details.</p>
+        <aside class="notes">
+          <strong>Q&A (5 min):</strong>
+          • "I want your questions - this is my first talk and I want to learn"
+          • "Ask about: implementation details, trade-offs, production usage"
+          • "If silence, seed with: 'Want me to show more of the code?'"
+          • "Common questions: 'How do you handle hallucination?', 'What about edge cases?'"
+          • "Be ready to dive into technical details if asked"
+          • "Thank the audience and organizers"
+        </aside>
+      </section>
+
+      <!-- Contact / Speaker slide -->
+      <section>
+        <h2>Contact</h2>
+        <p>Prudhvi Krovvidi — Data Scientist, Gramener</p>
+        <p class="small">GitHub: <a class="link" href="https://github.com/prudhvi1709" target="_blank">github.com/prudhvi1709</a></p>
+        <p class="small">Email: kprudhvi71@gmail.com • LinkedIn: Prudhvi Krovvidi</p>
+        <aside class="notes">
+          <strong>Closing (1 min):</strong>
+          • "Thank you for your attention and questions"
+          • "This is my first conference talk - I'd love your feedback"
+          • "Connect with me: GitHub, LinkedIn, or email"
+          • "Try the tools and let me know how they work for you"
+          • "Thank the organizers for the opportunity"
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      width: 1400,
+      height: 900,
+      controls: true,
+      progress: true,
+      center: true,
+      transition: 'slide',
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
