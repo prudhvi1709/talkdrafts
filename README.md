@@ -7,4 +7,4 @@
 ### Hasgeek Conference - Nov 1, 2025
 **Title:** AI as Your Co-Developer: Automating Schemas, Quality Checks, Ingestion & Hypothesis Testing
 
-- **Presentation:** [View Presentation](Hasgeek-01-11-2025/index.html)
+- **Presentation:** [View Presentation](https://prudhvi1709.github.io/talkdrafts/Hasgeek-01-11-2025/index.html)
