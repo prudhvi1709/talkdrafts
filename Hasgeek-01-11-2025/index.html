@@ -6,17 +6,58 @@
   <title>AI as Your Co-Developer — Prudhvi Krovvidi</title>
   <!-- Reveal.js from CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/white.css" id="theme">
   <style>
-    .reveal section { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
-    .reveal h1, .reveal h2 { line-height: 1.05; }
+    .reveal section { 
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; 
+      color: #2c3e50;
+    }
+    .reveal h1, .reveal h2 { 
+      line-height: 1.05; 
+      color: #1a252f;
+      font-weight: 600;
+    }
     h1 { font-size: 3.2rem; }
     h2 { font-size: 2.2rem; }
-    p, li { font-size: 1.6rem; }
-    .small { font-size: 1.1rem; opacity: 0.85 }
-    .reveal .slides section { padding: 2.4rem; }
-    .link { text-decoration: underline; }
-    .callout { font-weight: 700; font-size:1.8rem; }
+    p, li { 
+      font-size: 1.6rem; 
+      color: #34495e;
+    }
+    .small { 
+      font-size: 1.1rem; 
+      opacity: 0.75;
+      color: #7f8c8d;
+    }
+    .reveal .slides section { 
+      padding: 2.4rem; 
+      background: #fafbfc;
+    }
+    .link { 
+      text-decoration: underline; 
+      color: #3498db;
+    }
+    .callout { 
+      font-weight: 700; 
+      font-size: 1.8rem; 
+      color: #e74c3c;
+    }
+    .reveal pre code {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1rem;
+      color: #2c3e50;
+    }
+    .reveal img {
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    }
+    .reveal code {
+      background: #f1f3f4;
+      color: #d63384;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -28,7 +69,7 @@
         <h1>AI as Your Co-Developer</h1>
         <h2>Automating Schemas, Quality Checks, Ingestion & Hypothesis Testing</h2>
         <div style="text-align: center; margin: 20px 0;">
-          <img src="screenshots/title.png" alt="AI Co-Developer Hero" style="max-width: 60%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+          <img src="screenshots/title.png" alt="AI Co-Developer Hero" style="max-width: 60%; height: auto; border-radius: 8px;">
         </div>
         <p class="small">Prudhvi Krovvidi — Data Scientist, Gramener</p>
         <p class="small">30 min • Experiential talk + live demos</p>
@@ -53,7 +94,7 @@
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/framing.png" alt="Beyond Autocomplete" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/framing.png" alt="Beyond Autocomplete" style="max-width: 90%; height: auto; border-radius: 8px;">
             <p class="small" style="margin-top: 10px;">Traditional vs Advanced AI</p>
           </div>
         </div>
@@ -80,7 +121,7 @@
             </ol>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/agenda.png" alt="Agenda Timeline" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/agenda.png" alt="Agenda Timeline" style="max-width: 90%; height: auto; border-radius: 8px;">
             <p class="small" style="margin-top: 10px;">30-Minute Journey</p>
           </div>
         </div>
@@ -107,7 +148,7 @@
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/what-youll-takeaway.png" alt="Key Takeaways" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/what-youll-takeaway.png" alt="Key Takeaways" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">Key Learning Outcomes</p>
           </div>
         </div>
@@ -130,7 +171,7 @@
           <li>Goal: immediately usable artifacts for pipelines</li>
         </ul>
         <div style="text-align: center; margin: 20px 0;">
-          <img src="screenshots/schemaoverview.png" alt="Schema Overview" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+          <img src="screenshots/schemaoverview.png" alt="Schema Overview" style="max-width: 80%; height: auto; border-radius: 8px; ">
         </div>
         <p class="small">Repo: <a class="link" href="https://github.com/prudhvi1709/schemaforge" target="_blank">github.com/prudhvi1709/schemaforge</a></p>
         <aside class="notes">
@@ -155,11 +196,11 @@
         </ul>
         <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
           <div style="flex: 1; text-align: center; margin: 0 10px;">
-            <img src="screenshots/schemaforge-dataingestion.png" alt="SchemaForge Data Ingestion" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/schemaforge-dataingestion.png" alt="SchemaForge Data Ingestion" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">Data Ingestion Process</p>
           </div>
           <div style="flex: 1; text-align: center; margin: 0 10px;">
-            <img src="screenshots/schemaforge-relationships.png" alt="SchemaForge Relationships" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/schemaforge-relationships.png" alt="SchemaForge Relationships" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">ER Relationships</p>
           </div>
         </div>
@@ -191,11 +232,11 @@
         <p class="small">Auto-generated DBT YAML with constraints + tests</p>
         <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
           <div style="flex: 1; text-align: center; margin: 0 10px;">
-            <img src="screenshots/scheamaforge-dbtruls-sql.png" alt="DBT Rules SQL" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/scheamaforge-dbtruls-sql.png" alt="DBT Rules SQL" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">DBT Rules (SQL)</p>
           </div>
           <div style="flex: 1; text-align: center; margin: 0 10px;">
-            <img src="screenshots/schemaforge-dbtruls-yaml.png" alt="DBT Rules YAML" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/schemaforge-dbtruls-yaml.png" alt="DBT Rules YAML" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">DBT Rules (YAML)</p>
           </div>
         </div>
@@ -223,7 +264,7 @@
             <p class="small">Repo: <a class="link" href="https://github.com/prudhvi1709/hypoforge-llmf" target="_blank">github.com/prudhvi1709/hypoforge-llmf</a></p>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/hypoforge-intro.png" alt="Hypothesis Forge Intro" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/hypoforge-intro.png" alt="Hypothesis Forge Intro" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">Statistical Analysis AI</p>
           </div>
         </div>
@@ -253,7 +294,7 @@
           <li><strong>Summary:</strong> Customers from A spend significantly more.</li>
         </ul>
         <div style="text-align: center; margin: 20px 0;">
-          <img src="screenshots/hypoforge-hypothesis.png" alt="Hypothesis Generation" style="max-width: 70%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+          <img src="screenshots/hypoforge-hypothesis.png" alt="Hypothesis Generation" style="max-width: 70%; height: auto; border-radius: 8px; ">
           <p class="small" style="margin-top: 10px;">Hypothesis Generation Process</p>
         </div>
         <aside class="notes">
@@ -280,7 +321,7 @@ Result: p = 0.032 → Reject H₀
 Insight: Discounts improved 3-month retention by ~7%.
 </code></pre>
         <div style="text-align: center; margin: 20px 0;">
-          <img src="screenshots/hypoforge-hypothesis-tested.png" alt="Hypothesis Testing Results" style="max-width: 70%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+          <img src="screenshots/hypoforge-hypothesis-tested.png" alt="Hypothesis Testing Results" style="max-width: 70%; height: auto; border-radius: 8px; ">
           <p class="small" style="margin-top: 10px;">Hypothesis Testing Results</p>
         </div>
         <aside class="notes">
@@ -307,7 +348,7 @@ Insight: Discounts improved 3-month retention by ~7%.
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/reflection-lessons.png" alt="Trade-offs & Guardrails" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/reflection-lessons.png" alt="Trade-offs & Guardrails" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">AI-Human Collaboration</p>
           </div>
         </div>
@@ -334,7 +375,7 @@ Insight: Discounts improved 3-month retention by ~7%.
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/final-takeaways.png" alt="Final Key Takeaways" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/final-takeaways.png" alt="Final Key Takeaways" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">Core Insights</p>
           </div>
         </div>
@@ -362,7 +403,7 @@ Insight: Discounts improved 3-month retention by ~7%.
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/github-repo.png" alt="GitHub Repositories" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/github-repo.png" alt="GitHub Repositories" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">Open Source Projects</p>
           </div>
         </div>
@@ -385,7 +426,7 @@ Insight: Discounts improved 3-month retention by ~7%.
             <p class="small">Ask me about engineering trade-offs, how the tools generate artifacts, or demo details.</p>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/qanda.png" alt="Q&A Session" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/qanda.png" alt="Q&A Session" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">Let's Discuss!</p>
           </div>
         </div>
@@ -410,7 +451,7 @@ Insight: Discounts improved 3-month retention by ~7%.
             <p class="small">Email: kprudhvi71@gmail.com • LinkedIn: prudhvi-krovvidi</p>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/contact.png" alt="Contact Information" style="max-width: 90%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <img src="screenshots/contact.png" alt="Contact Information" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">Let's Connect!</p>
           </div>
         </div>
