@@ -69,7 +69,7 @@
         <h1>AI as Your Co-Developer</h1>
         <h2>Automating Schemas, Quality Checks, Ingestion & Hypothesis Testing</h2>
         <div style="text-align: center; margin: 20px 0;">
-          <img src="screenshots/title.png" alt="AI Co-Developer Hero" style="max-width: 60%; height: auto; border-radius: 8px;">
+          <img src="screenshots/title.png" alt="AI Co-Developer Hero" style="max-width: 80%; max-height: 400px; height: auto; border-radius: 8px; object-fit: contain;">
         </div>
         <p class="small">Prudhvi Krovvidi — Data Scientist, Gramener</p>
         <p class="small">30 min • Experiential talk + live demos</p>
@@ -115,9 +115,8 @@
           <div style="flex: 1; padding-right: 20px;">
             <ol>
               <li>Framing — 5m</li>
-              <li>Demo: SchemaForge — 10m</li>
-              <li>Demo: Hypothesis Forge — 10m</li>
-              <li>Reflections & Q&A — 5m</li>
+              <li>Demo: SchemaForge — 15m</li>
+              <li>Reflections & Q&A — 10m</li>
             </ol>
           </div>
           <div style="flex: 1; text-align: center;">
@@ -128,11 +127,9 @@
         <aside class="notes">
           <strong>Agenda (1 min):</strong>
           • "I'll keep this tight - 30 minutes total"
-          • "5 minutes of framing, then two 10-minute live demos"
-          • "Each demo shows a different aspect: data engineering vs. data science"
+          • "5 minutes of framing, then a 15-minute live demo"
           • "SchemaForge: generates DBT models and schemas"
-          • "Hypothesis Forge: generates statistical tests and insights"
-          • "5 minutes for Q&A - I want your questions!"
+          • "10 minutes for Q&A - I want your questions!"
         </aside>
       </section>
 
@@ -217,27 +214,14 @@
 
       <section>
         <h2>SchemaForge — Example Output</h2>
-        <pre><code class="small">models:
-  - name: orders
-    columns:
-      - name: order_id
-        tests:
-          - not_null
-          - unique
-      - name: amount
-        tests:
-          - not_null
-          - accepted_range: {min: 0}
-</code></pre>
-        <p class="small">Auto-generated DBT YAML with constraints + tests</p>
-        <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
-          <div style="flex: 1; text-align: center; margin: 0 10px;">
-            <img src="screenshots/scheamaforge-dbtruls-sql.png" alt="DBT Rules SQL" style="max-width: 90%; height: auto; border-radius: 8px; ">
-            <p class="small" style="margin-top: 10px;">DBT Rules (SQL)</p>
+        <div style="display: flex; justify-content: space-around; align-items: flex-start; margin: 30px 0;">
+          <div style="flex: 1; text-align: center; margin: 0 15px;">
+            <img src="screenshots/scheamaforge-dbtruls-sql.png" alt="DBT Rules SQL" style="max-width: 100%; max-height: 500px; height: auto; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            <p class="small" style="margin-top: 15px; font-weight: 600;">DBT Rules (SQL)</p>
           </div>
-          <div style="flex: 1; text-align: center; margin: 0 10px;">
-            <img src="screenshots/schemaforge-dbtruls-yaml.png" alt="DBT Rules YAML" style="max-width: 90%; height: auto; border-radius: 8px; ">
-            <p class="small" style="margin-top: 10px;">DBT Rules (YAML)</p>
+          <div style="flex: 1; text-align: center; margin: 0 15px;">
+            <img src="screenshots/schemaforge-dbtruls-yaml.png" alt="DBT Rules YAML" style="max-width: 100%; max-height: 500px; height: auto; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            <p class="small" style="margin-top: 15px; font-weight: 600;">DBT Rules (YAML)</p>
           </div>
         </div>
         <aside class="notes">
@@ -251,90 +235,8 @@
         </aside>
       </section>
 
-      <!-- Hypothesis Forge intro -->
-      <section>
-        <h2>Demo 2 — Hypothesis Forge</h2>
-        <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
-          <div style="flex: 1; padding-right: 20px;">
-            <ul>
-              <li>Input: dataset + natural language question</li>
-              <li>Process: suggest testable hypotheses → run stats tests → summarize</li>
-              <li>Outcome: interpretable evidence-backed insights</li>
-            </ul>
-            <p class="small">Repo: <a class="link" href="https://github.com/prudhvi1709/hypoforge-llmf" target="_blank">github.com/prudhvi1709/hypoforge-llmf</a></p>
-          </div>
-          <div style="flex: 1; text-align: center;">
-            <img src="screenshots/hypoforge-intro.png" alt="Hypothesis Forge Intro" style="max-width: 90%; height: auto; border-radius: 8px; ">
-            <p class="small" style="margin-top: 10px;">Statistical Analysis AI</p>
-          </div>
-        </div>
-        <aside class="notes">
-          <strong>Hypothesis Forge Intro (2 min):</strong>
-          • "Now for the data science side: Hypothesis Forge"
-          • "Takes natural language questions and turns them into statistical tests"
-          • "Input: dataset + question like 'Do customers from city A spend more?'"
-          • "Process: generates formal hypotheses, runs tests, provides insights"
-          • "Output: p-values, confidence intervals, and plain-English summaries"
-          • "Live demo: I'll show a real business question → statistical analysis"
-        </aside>
-      </section>
 
-      <!-- Hypothesis Forge details -->
-      <section>
-        <h2>Hypothesis Forge in Action</h2>
-        <ul>
-          <li><strong>Question:</strong> Do customers from city A spend more than city B?</li>
-          <li><strong>Generated hypotheses:</strong>
-            <ul>
-              <li>H₀: mean spend(A) = mean spend(B)</li>
-              <li>H₁: mean spend(A) > mean spend(B)</li>
-            </ul>
-          </li>
-          <li><strong>Test:</strong> Welch's t-test → p-value = 0.01</li>
-          <li><strong>Summary:</strong> Customers from A spend significantly more.</li>
-        </ul>
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="screenshots/hypoforge-hypothesis.png" alt="Hypothesis Generation" style="max-width: 70%; height: auto; border-radius: 8px; ">
-          <p class="small" style="margin-top: 10px;">Hypothesis Generation Process</p>
-        </div>
-        <aside class="notes">
-          <strong>Hypothesis Forge Workflow (3 min):</strong>
-          • <strong>Question Input:</strong> "Natural language: 'Do customers from city A spend more than city B?'"
-          • <strong>Hypothesis Generation:</strong> "AI creates formal H₀ and H₁ hypotheses automatically"
-          • <strong>Test Selection:</strong> "AI chooses the right statistical test (t-test, chi-square, etc.)"
-          • <strong>Execution:</strong> "Runs the test and calculates p-values, confidence intervals"
-          • <strong>Interpretation:</strong> "Outputs plain-English insights for business stakeholders"
-          • "Live demo: I'll show the full workflow with real data"
-        </aside>
-      </section>
 
-      <section>
-        <h2>Hypothesis Forge — Output Example</h2>
-        <pre><code class="small">Question: Do discounts improve retention?
-
-Hypotheses:
-- H₀: Retention(discounted) = Retention(non-discounted)
-- H₁: Retention(discounted) > Retention(non-discounted)
-
-Result: p = 0.032 → Reject H₀
-
-Insight: Discounts improved 3-month retention by ~7%.
-</code></pre>
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="screenshots/hypoforge-hypothesis-tested.png" alt="Hypothesis Testing Results" style="max-width: 70%; height: auto; border-radius: 8px; ">
-          <p class="small" style="margin-top: 10px;">Hypothesis Testing Results</p>
-        </div>
-        <aside class="notes">
-          <strong>Hypothesis Forge Output Demo (3 min):</strong>
-          • "This is the actual output format - clean and actionable"
-          • "AI generated the formal hypotheses automatically"
-          • "AI chose the right statistical test and calculated p-value"
-          • "Key insight: p = 0.032 means we can reject the null hypothesis"
-          • "Business impact: 7% retention improvement is significant"
-          • "Live demo: I'll show this exact workflow with a real dataset"
-          • "This output goes directly to business stakeholders - no stats knowledge needed"
-        </aside>
-      </section>
 
       <!-- Lessons learned / reflections -->
       <section>
@@ -362,7 +264,7 @@ Insight: Discounts improved 3-month retention by ~7%.
           • "These tools work best as co-pilots, not replacements"
         </aside>
       </section>
-
+      https://prudhvi1709.github.io/talkdrafts/Hasgeek-01-11-2025/index.html
       <!-- Key Takeaways -->
       <section>
         <h2>Key Takeaways</h2>
@@ -397,9 +299,6 @@ Insight: Discounts improved 3-month retention by ~7%.
             <ul>
               <li><strong>SchemaForge:</strong><br>
                 <code style="font-size: 1.2rem; padding: 4px 8px; border-radius: 4px;">github.com/prudhvi1709/schemaforge</code></li>
-              <p> </p>
-              <li><strong>Hypothesis Forge:</strong><br>
-                <code style="font-size: 1.2rem; padding: 4px 8px; border-radius: 4px;">github.com/prudhvi1709/hypoforge-llmf</code></li>
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
@@ -409,11 +308,10 @@ Insight: Discounts improved 3-month retention by ~7%.
         </div>
         <aside class="notes">
           <strong>Call to Action (1 min):</strong>
-          • "Both repos are open-source and ready to try"
+          • "SchemaForge is open-source and ready to try"
           • "SchemaForge: github.com/prudhvi1709/schemaforge"
-          • "Hypothesis Forge: github.com/prudhvi1709/hypoforge-llmf"
           • "I'd love your feedback - this is my first talk and I want to improve"
-          • "Try them with your own datasets and let me know what works"
+          • "Try it with your own datasets and let me know what works"
           • "Questions about implementation? I'm happy to dive deeper"
         </aside>
       </section>
