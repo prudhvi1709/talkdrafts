@@ -20,7 +20,11 @@
     h1 { font-size: 3.2rem; }
     h2 { font-size: 2.2rem; }
     p, li { 
-      font-size: 1.6rem; 
+      font-size: 2rem; 
+      color: #34495e;
+    }
+    .large { 
+      font-size: 1.8rem; 
       color: #34495e;
     }
     .small { 
@@ -68,10 +72,11 @@
       <section>
         <h1>AI as Your Co-Developer</h1>
         <h2>Automating Schemas, Quality Checks, Ingestion</h2>
-        <div style="text-align: center; margin: 20px 0;">
-          <img src="screenshots/title.png" alt="AI Co-Developer Hero" style="max-width: 80%; max-height: 400px; height: auto; border-radius: 8px; object-fit: contain;">
+        <div style="text-align: center; margin: 26px 0 12px 0;">
+          <img src="screenshots/talk-qr.png" alt="QR to Access Slides" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.09);">
+          <p class="small" style="margin-top: 10px; font-size: 1.15rem;">Scan for slides & resources</p>
         </div>
-        <p class="small">Prudhvi Krovvidi — Data Scientist, Gramener</p>
+        <p class="large">Prudhvi Krovvidi — Data Scientist, Gramener</p>
         <p class="small">30 min • Experiential talk + live demos</p>
         <aside class="notes">
           <strong>Opening (2 min):</strong>
@@ -80,6 +85,31 @@
           • Set expectations: "I'll show you two AI tools I built that generate production-ready code"
           • "These aren't just demos - they output real DBT models and statistical tests"
           • "You'll see live demos of both tools in action"
+        </aside>
+      </section>
+
+      <!-- Agenda / Timeline -->
+      <section>
+        <h2>Agenda (30 min)</h2>
+        <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
+          <div style="flex: 1; padding-right: 20px;">
+            <ul style="font-size: 1.2rem;">
+              <li>Framing — 5m</li>
+              <li>Demo: SchemaForge — 15m</li>
+              <li>Reflections & Q&A — 10m</li>
+            </ul>
+          </div>
+          <div style="flex: 1; text-align: center;">
+            <img src="screenshots/agenda.png" alt="Agenda Timeline" style="max-width: 90%; height: auto; border-radius: 8px;">
+            <p class="small" style="margin-top: 10px;">30-Minute Journey</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>Agenda (1 min):</strong>
+          • "I'll keep this tight - 30 minutes total"
+          • "5 minutes of framing, then a 15-minute live demo"
+          • "SchemaForge: generates DBT models and schemas"
+          • "10 minutes for Q&A - I want your questions!"
         </aside>
       </section>
 
@@ -108,44 +138,25 @@
         </aside>
       </section>
 
-      <!-- Agenda / Timeline -->
-      <section>
-        <h2>Agenda (30 min)</h2>
-        <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
-          <div style="flex: 1; padding-right: 20px;">
-            <ol>
-              <li>Framing — 5m</li>
-              <li>Demo: SchemaForge — 15m</li>
-              <li>Reflections & Q&A — 10m</li>
-            </ol>
-          </div>
-          <div style="flex: 1; text-align: center;">
-            <img src="screenshots/agenda.png" alt="Agenda Timeline" style="max-width: 90%; height: auto; border-radius: 8px;">
-            <p class="small" style="margin-top: 10px;">30-Minute Journey</p>
-          </div>
-        </div>
-        <aside class="notes">
-          <strong>Agenda (1 min):</strong>
-          • "I'll keep this tight - 30 minutes total"
-          • "5 minutes of framing, then a 15-minute live demo"
-          • "SchemaForge: generates DBT models and schemas"
-          • "10 minutes for Q&A - I want your questions!"
-        </aside>
-      </section>
-
       <!-- Takeaways -->
       <section>
         <h2>What you'll take away</h2>
         <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
           <div style="flex: 1; padding-right: 20px;">
             <ul>
-              <li>How AI can output DBT-ready schemas and test rules</li>
-              <li>How automated hypothesis generation accelerates analysis</li>
-              <li>Patterns & guardrails for production usage</li>
+              <li>How AI can output:
+                <ul>
+                  <li>DBT-ready schemas</li>
+                  <li>Test rules</li>
+                  <li>Ingestion scripts</li>
+                  <li>Many more</li>
+                </ul>
+              </li>
+              <li>Patterns & guardrails for production usage.</li>
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/what-youll-takeaway.png" alt="Key Takeaways" style="max-width: 90%; height: auto; border-radius: 8px; ">
+            <img src="screenshots/what-youll-takeaway.jpg" alt="Key Takeaways" style="max-width: 90%; height: auto; border-radius: 8px; ">
             <p class="small" style="margin-top: 10px;">Key Learning Outcomes</p>
           </div>
         </div>
@@ -240,9 +251,23 @@
         <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
           <div style="flex: 1; padding-right: 20px;">
             <ul>
-              <li>Trade-offs: speed vs. correctness; hallucination vs. structure</li>
-              <li>Reliability: guardrails (tests, validation, review loops)</li>
-              <li>Integration pattern: AI → scaffold → validate → deploy</li>
+              <li>Trade-offs:
+                <ul>
+                  <li>Speed vs. Correctness</li>
+                  <li>Hallucination vs. Structure</li>
+                </ul>
+              </li>
+              <li>Reliability:
+                <ul>
+                  <li>Guardrails (Tests, Validation, Review Loops)</li>
+                  <li>Human-in-the-loop</li>
+                </ul>
+              </li>
+              <li>Integration pattern:
+                <ul>
+                  <li>AI → Scaffold → Validate → Deploy</li>
+                </ul>
+              </li>
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
@@ -260,7 +285,7 @@
           • "These tools work best as co-pilots, not replacements"
         </aside>
       </section>
-      https://prudhvi1709.github.io/talkdrafts/Hasgeek-01-11-2025/index.html
+
       <!-- Key Takeaways -->
       <section>
         <h2>Key Takeaways</h2>
@@ -268,7 +293,6 @@
           <div style="flex: 1; padding-right: 20px;">
             <ul>
               <li>AI can produce <strong>production-ready artifacts</strong> (DBT models, ETL code)</li>
-              <li>AI can guide <strong>statistical reasoning</strong>, not just autocomplete</li>
               <li>Guardrails + human-in-loop make it usable in real workflows</li>
             </ul>
           </div>
@@ -289,74 +313,36 @@
 
       <!-- Call to action and links -->
       <section>
-        <h2>Try the Repos</h2>
+        <h2>Try the Repos & Collaborate</h2>
         <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
           <div style="flex: 1; padding-right: 20px;">
             <ul>
               <li><strong>SchemaForge:</strong><br>
-                <code style="font-size: 1.2rem; padding: 4px 8px; border-radius: 4px;">github.com/prudhvi1709/schemaforge</code></li>
+                <code style="font-size: 1.2rem; padding: 4px 8px; border-radius: 4px;">github.com/prudhvi1709/schemaforge</code>
+              </li>
+              <li style="margin-top: 12px;">
+                <em>Open to contributions, ideas, and real-world use cases!</em>
+              </li>
             </ul>
           </div>
           <div style="flex: 1; text-align: center;">
-            <img src="screenshots/github-repo.png" alt="GitHub Repositories" style="max-width: 90%; height: auto; border-radius: 8px; ">
+            <img src="screenshots/github-repo.png" alt="GitHub Repositories" style="max-width: 90%; height: auto; border-radius: 8px;">
             <p class="small" style="margin-top: 10px;">Open Source Projects</p>
           </div>
         </div>
-        <aside class="notes">
-          <strong>Call to Action (1 min):</strong>
-          • "SchemaForge is open-source and ready to try"
-          • "SchemaForge: github.com/prudhvi1709/schemaforge"
-          • "I'd love your feedback - this is my first talk and I want to improve"
-          • "Try it with your own datasets and let me know what works"
-          • "Questions about implementation? I'm happy to dive deeper"
-        </aside>
       </section>
+      
 
-      <!-- Q&A -->
-      <section>
-        <h2>Q &amp; A</h2>
-        <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
-          <div style="flex: 1; padding-right: 20px;">
-            <p class="small">Ask me about engineering trade-offs, how the tools generate artifacts, or demo details.</p>
-          </div>
-          <div style="flex: 1; text-align: center;">
-            <img src="screenshots/qanda.png" alt="Q&A Session" style="max-width: 90%; height: auto; border-radius: 8px; ">
-            <p class="small" style="margin-top: 10px;">Let's Discuss!</p>
-          </div>
-        </div>
-        <aside class="notes">
-          <strong>Q&A (5 min):</strong>
-          • "I want your questions - this is my first talk and I want to learn"
-          • "Ask about: implementation details, trade-offs, production usage"
-          • "If silence, seed with: 'Want me to show more of the code?'"
-          • "Common questions: 'How do you handle hallucination?', 'What about edge cases?'"
-          • "Be ready to dive into technical details if asked"
-          • "Thank the audience and organizers"
-        </aside>
-      </section>
+      <!-- Q&A + Contact -->
+    <section>
+      <h2>Q &amp; A </h2>
+      <div style="text-align: center; margin: 30px 0;">
+        <p class="small" style="font-size: 2.25rem; margin-bottom: 6px;">I'd love your questions, thoughts, or feedback!</p>
+        <p class="small" style="font-size: 1.75rem; margin-bottom: 28px;">Let's connect and collaborate on open-source AI tools.</p>
+        <img src="screenshots/qr.png" alt="QR Code" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">
+      </div>
+    </section>
 
-      <!-- Contact / Speaker slide -->
-      <section>
-        <h2>Contact</h2>
-        <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
-          <div style="flex: 1; padding-right: 20px;">
-            <p>Prudhvi Krovvidi — Data Scientist, Gramener</p>
-            <p class="small">GitHub: <a class="link" href="https://github.com/prudhvi1709" target="_blank">github.com/prudhvi1709</a></p>
-            <p class="small">Email: kprudhvi71@gmail.com • LinkedIn: prudhvi-krovvidi</p>
-          </div>
-          <div style="flex: 1; text-align: center;">
-            <img src="screenshots/contact.png" alt="Contact Information" style="max-width: 90%; height: auto; border-radius: 8px; ">
-            <p class="small" style="margin-top: 10px;">Let's Connect!</p>
-          </div>
-        </div>
-        <aside class="notes">
-          <strong>Closing (1 min):</strong>
-          • "Thank you for your attention and questions"
-          • "Connect with me: GitHub, LinkedIn, or email"
-          • "Try the tools and let me know how they work for you"
-          • "Thank the organizers for the opportunity"
-        </aside>
-      </section>
 
     </div>
   </div>
