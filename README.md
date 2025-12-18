@@ -10,6 +10,6 @@
 - **Presentation:** [View Presentation](https://prudhvi1709.github.io/talkdrafts/Hasgeek-01-11-2025/index.html)
 
 ### Hyderabad Python Meetup - Dec 20, 2025
-**Title:** SchemaForge: Using GenAI in Python data pipelines
+**Title:** LLM-Powered Data Engineering: Automating Schemas, Ingestion and Quality
 
 - **Presentation:** [View Presentation](https://prudhvi1709.github.io/talkdrafts/Hydpy-20-12-2025/index.html)
