@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>LLM-Powered Data Engineering: Automating Schemas, Ingestion and Quality</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css">
+
+  <!-- Custom minimal styling -->
+  <style>
+    body {
+      background: #0e0e11;
+    }
+    .reveal h1, .reveal h2, .reveal h3 {
+      letter-spacing: -0.02em;
+    }
+    .reveal h1 {
+      font-size: 1.6em;
+    }
+    .reveal h2 {
+      font-size: 1.2em;
+    }
+    .reveal p, .reveal li {
+      font-size: 1.0em;
+      color: #d1d1d6;
+    }
+    .muted {
+      color: #8e8e93;
+      font-size: 0.8em;
+    }
+    .accent {
+      color: #7dd3fc;
+    }
+  </style>
+</head>
+
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- Slide 1 -->
+<section>
+  <h1>LLM-Powered Data Engineering</h1>
+  <p class="accent">Automating Schemas, Ingestion and Quality</p>
+  <p class="muted">Prudhvi Krovvidi · Hyderabad Python Meetup</p>
+  <div style="text-align: center; margin-top: 1em;">
+    <img src="assets/talk-qr.png" alt="Talk QR" style="max-width: 300px; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  </div>
+
+  <aside class="notes">
+    This is not a product pitch.
+    This is an open-source exploration of how GenAI can live inside real Python + dbt workflows.
+    Live demo coming up.
+  </aside>
+</section>
+
+<!-- Slide 2 -->
+<section>
+  <h2>Data breaks late.</h2>
+  <h2 class="accent">Schemas drift silently.</h2>
+
+  <aside class="notes">
+    Python ETL works fine until schema changes sneak in.
+    Failures show up downstream, not at commit time.
+  </aside>
+</section>
+
+<!-- Slide 3 -->
+<section>
+  <h2>Where we spend human time</h2>
+  <ul>
+    <li>Writing schemas</li>
+    <li>Updating dbt tests</li>
+    <li>Debugging mismatches</li>
+  </ul>
+
+  <aside class="notes">
+    This is translation work: intent → schema → SQL checks.
+    Repetitive, but requires reasoning.
+  </aside>
+</section>
+
+<!-- Slide 4 -->
+<section>
+  <h2>GenAI is good at</h2>
+  <h2 class="accent">reasoning — not guessing</h2>
+
+  <aside class="notes">
+    Not prompt-to-schema magic.
+    GenAI excels at understanding structure and change.
+  </aside>
+</section>
+
+<!-- Slide 5 -->
+<section>
+  <h2>Schemas are</h2>
+  <h1 class="accent">living artifacts</h1>
+
+  <aside class="notes">
+    Humans already reason about schema evolution.
+    SchemaForge automates that thinking.
+  </aside>
+</section>
+
+<!-- Slide 6 -->
+<section>
+  <h2>What is <a href="https://prudhvi1709.github.io/schemaforge/" target="_blank">SchemaForge</a>?</h2>
+  <ul>
+    <li>Python-first</li>
+    <li>Schema reasoning engine</li>
+    <li>dbt rule generator</li>
+  </ul>
+
+  <aside class="notes">
+    Input: real data.
+    Output: executable dbt tests.
+    Python and dbt stay central.
+  </aside>
+</section>
+
+<!-- Slide 7 -->
+<section>
+  <h2>Where it fits</h2>
+  <p><strong>Python ETL → SchemaForge → dbt tests → Warehouse</strong></p>
+
+  <aside class="notes">
+    Nothing is replaced.
+    SchemaForge augments glue logic.
+  </aside>
+</section>
+
+<!-- Slide 8 -->
+<section>
+  <h2>Live demo</h2>
+  <ol>
+    <li>Schema inference</li>
+    <li>Evolution reasoning</li>
+    <li>dbt rule generation</li>
+  </ol>
+
+  <aside class="notes">
+    Tell audience what to watch for.
+    Switch to browser after this slide.
+  </aside>
+</section>
+
+<!-- Slide 9 -->
+<section>
+  <h2>How Python engineers benefit</h2>
+  <ul>
+    <li>Fewer manual checks</li>
+    <li>Less schema drift</li>
+    <li>Earlier failures</li>
+  </ul>
+
+  <aside class="notes">
+    dbt tests stay in sync.
+    ETL validation logic is centralized.
+  </aside>
+</section>
+
+<!-- Slide 10 -->
+<section>
+  <h2>Integration patterns</h2>
+  <ul>
+    <li>Pre-commit schema checks</li>
+    <li>CI-driven dbt test generation</li>
+    <li>ETL validation hooks</li>
+  </ul>
+
+  <aside class="notes">
+    Deterministic, not runtime magic.
+    Fits existing pipelines.
+  </aside>
+</section>
+
+<!-- Slide 11 -->
+<section>
+    <h2>What stays the same</h2>
+    <ul>
+      <li>Python owns ETL</li>
+      <li>dbt owns execution</li>
+      <li>Humans own decisions</li>
+    </ul>
+  
+    <aside class="notes">
+      SchemaForge fits into existing workflows.
+      Python pipelines remain unchanged.
+      dbt continues to execute all data quality checks.
+      Humans stay accountable for intent and decisions.
+    </aside>
+  </section>
+  
+
+<!-- Slide 12 -->
+<section>
+  <h2>Connect & contribute</h2>
+  <p class="muted">Scan the QR · Connect · Contribute</p>
+  <img src="assets/qr.png" alt="QR Code" style="max-width: 200px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+</section>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'fade'
+  });
+</script>
+</body>
+</html>
