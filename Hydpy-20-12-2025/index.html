@@ -51,9 +51,11 @@
   </div>
 
   <aside class="notes">
-    This is not a product pitch.
-    This is an open-source exploration of how GenAI can live inside real Python + dbt workflows.
-    Live demo coming up.
+    Hi, I'm Prudhvi.
+    This talk is not a product pitch or a sales demo.
+    
+    What I want to share today is an open-source exploration of how LLMs can live inside real Python data pipelines, not outside them.
+    We'll also do a live demo — not screenshots — so you can see this working end to end.
   </aside>
 </section>
 
@@ -63,8 +65,15 @@
   <h2 class="accent">Schemas drift silently.</h2>
 
   <aside class="notes">
-    Python ETL works fine until schema changes sneak in.
-    Failures show up downstream, not at commit time.
+    Most of us here work with Python ETL in some form.
+    Pipelines usually don't fail immediately when something changes — they fail late.
+    
+    Schema changes rarely come with alarms.
+    A new field appears, a type subtly changes, a value becomes nullable — and nothing breaks right away.
+    
+    The problem shows up much later, when dbt tests fail, dashboards break, or downstream consumers start seeing bad data.
+    
+    By then, we're debugging history instead of preventing the issue.
   </aside>
 </section>
 
@@ -78,8 +87,13 @@
   </ul>
 
   <aside class="notes">
-    This is translation work: intent → schema → SQL checks.
-    Repetitive, but requires reasoning.
+    If you think about it, a lot of our time goes into:
+    writing schema files,
+    updating dbt tests,
+    and debugging mismatches between Python and SQL.
+    
+    This is not creative work — it's translation work.
+    Humans are repeatedly converting intent into checks.
   </aside>
 </section>
 
@@ -89,8 +103,11 @@
   <h2 class="accent">reasoning, understanding context, not guessing</h2>
 
   <aside class="notes">
-    Not prompt-to-schema magic.
-    LLMs excel at understanding structure and change.
+    When people hear "LLMs", they often think prompt-to-output magic.
+    That's not what this is about.
+    
+    LLMs are actually very good at understanding structure, explaining change, and reasoning about compatibility.
+    That maps extremely well to schema work.
   </aside>
 </section>
 
@@ -100,8 +117,14 @@
   <h1 class="accent">living artifacts</h1>
 
   <aside class="notes">
-    Humans already reason about schema evolution.
-    SchemaForge automates that thinking.
+    Schemas are not static contracts that you write once and forget.
+    They evolve as data and business logic evolve.
+    
+    Humans already reason about schemas all the time:
+    Is this breaking?
+    Is this safe to deploy?
+    
+    SchemaForge is about automating that reasoning loop, not replacing humans.
   </aside>
 </section>
 
@@ -109,15 +132,16 @@
 <section>
   <h2>What is <a href="https://prudhvi1709.github.io/schemaforge/" target="_blank">SchemaForge</a>?</h2>
   <ul>
-    <li>Python-first</li>
+    <li>Designed to plug into existing pipelines</li>
     <li>Schema reasoning engine</li>
     <li>dbt rule generator</li>
   </ul>
 
   <aside class="notes">
-    Input: real data.
-    Output: executable dbt tests.
-    Python and dbt stay central.
+    SchemaForge is a Python-first schema reasoning engine.
+    
+    The end goal is not just to infer schemas, but to generate executable dbt data-quality rules that actually run inside your pipelines.
+    Nothing here replaces Python or dbt — it augments them.
   </aside>
 </section>
 
@@ -127,8 +151,13 @@
   <p><strong>Python ETL → SchemaForge → dbt tests → Warehouse</strong></p>
 
   <aside class="notes">
-    Nothing is replaced.
-    SchemaForge augments glue logic.
+    Think of it like this:
+    Python ETL produces data.
+    SchemaForge reasons about structure and change.
+    dbt enforces data quality.
+    
+    SchemaForge sits between ETL and enforcement.
+    It's glue plus reasoning.
   </aside>
 </section>
 
@@ -142,8 +171,23 @@
   </ol>
 
   <aside class="notes">
-    Tell audience what to watch for.
-    Switch to browser after this slide.
+    I'll switch to a live hosted instance now.
+    
+    As you watch, focus on three things:
+    how the schema is inferred,
+    how schema changes are reasoned about,
+    and how dbt rules are generated.
+    
+    Let's jump into the demo.
+    
+    DEMO NARRATION:
+    We start with raw or semi-structured data — the kind we usually see in pipelines.
+    First, notice the schema inference. This isn't just about data types; there's semantic understanding here.
+    Now I'll introduce a schema change. This is where humans usually pause and ask: "Is this breaking?"
+    Finally, look at the dbt rules that are generated. These are real dbt-compatible tests that run in existing workflows.
+    And importantly — your Python ETL stays exactly the same.
+    
+    If the demo slows down: Even without the UI, the key idea is that intent becomes executable checks.
   </aside>
 </section>
 
@@ -157,8 +201,10 @@
   </ul>
 
   <aside class="notes">
-    dbt tests stay in sync.
-    ETL validation logic is centralized.
+    From a Python engineer's point of view, this means less manual schema maintenance.
+    dbt tests don't lag behind reality, and failures are detected earlier.
+    
+    This is about leverage, not automation for automation's sake.
   </aside>
 </section>
 
@@ -172,8 +218,13 @@
   </ul>
 
   <aside class="notes">
-    Deterministic, not runtime magic.
-    Fits existing pipelines.
+    In practice, this fits nicely into existing workflows.
+    
+    You can run SchemaForge as part of pre-commit checks,
+    inside CI to generate dbt tests,
+    or as validation hooks in Python ETL pipelines.
+    
+    Everything is deterministic, reviewable, and Git-friendly.
   </aside>
 </section>
 
@@ -187,10 +238,11 @@
     </ul>
   
     <aside class="notes">
-      SchemaForge fits into existing workflows.
-      Python pipelines remain unchanged.
-      dbt continues to execute all data quality checks.
-      Humans stay accountable for intent and decisions.
+      Python still owns ETL logic.
+      dbt still executes all checks.
+      Humans still own decisions and accountability.
+      
+      SchemaForge just reduces the translation burden.
     </aside>
   </section>
   
@@ -200,17 +252,35 @@
   <h2>Connect & contribute</h2>
   <p class="muted">Scan the QR · Connect · Contribute</p>
   <img src="assets/qr.png" alt="QR Code" style="max-width: 200px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  
+  <aside class="notes">
+    This is an open-source project.
+    
+    The QR code links to the live demo and the GitHub repo.
+    Even if you don't use SchemaForge directly, the pattern itself is reusable.
+    
+    Happy to take questions — especially around pipeline integration, trade-offs, and where this approach may not fit.
+    
+    PERSONAL REMINDERS:
+    Slow down.
+    Pause before the demo.
+    Let the demo breathe.
+    Don't over-explain AI internals.
+    Always anchor back to Python and dbt.
+  </aside>
 </section>
 
 </div>
 </div>
 
 <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+<script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
 <script>
   Reveal.initialize({
     hash: true,
     slideNumber: true,
-    transition: 'fade'
+    transition: 'fade',
+    plugins: [ RevealNotes ]
   });
 </script>
 </body>
