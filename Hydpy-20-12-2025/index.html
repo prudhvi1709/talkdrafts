@@ -74,7 +74,7 @@
       A lot of engineering effort goes into translating intent into structure and rules.
       That translation layer is where LLMs are actually useful.
     </aside>
-  </section>
+</section>
   
 <!-- Slide 3 -->
 <section>
@@ -149,99 +149,132 @@
 <section>
   <h2>What is <a href="https://prudhvi1709.github.io/schemaforge/" target="_blank">SchemaForge</a>?</h2>
   <ul>
-    <li>Designed to plug into existing pipelines</li>
-    <li>Schema reasoning engine</li>
-    <li>dbt rule generator</li>
+    <li>Web-based schema reasoning engine</li>
+    <li>Upload CSV/Excel, get dbt rules</li>
+    <li>Interactive ER diagrams</li>
+    <li>Chat with your data</li>
   </ul>
 
   <aside class="notes">
-    SchemaForge is a Python-first schema reasoning engine.
+    SchemaForge is a web-based tool that runs entirely in your browser.
     
-    The end goal is not just to infer schemas, but to generate executable dbt data-quality rules that actually run inside your pipelines.
+    You upload a CSV or Excel file, and it generates complete dbt projects with data quality tests.
+    But here's what makes it interesting: it includes interactive ER diagrams where you can visualize relationships between tables.
+    And there's a chat interface where you can ask questions about your data in natural language.
+    
+    The key insight: this isn't just schema inference. It's a complete workflow tool that understands your data semantically.
     Nothing here replaces Python or dbt — it augments them.
   </aside>
 </section>
 
 <!-- Slide 8 -->
 <section>
-  <h2>Where it fits</h2>
-  <p><strong>Python ETL → SchemaForge → dbt tests → Warehouse</strong></p>
+  <h2>The data flow</h2>
+  <p><strong>Raw Data → Schema Inference → Relationship Detection → dbt Rules → Validation</strong></p>
 
   <aside class="notes">
-    Think of it like this:
-    Python ETL produces data.
-    SchemaForge reasons about structure and change.
-    dbt enforces data quality.
+    Let me walk you through how this actually works in practice.
     
-    SchemaForge sits between ETL and enforcement.
-    It's glue plus reasoning.
+    Step 1: Raw Data - You start with CSV or Excel files. The kind of data you already have.
+    
+    Step 2: Schema Inference - The LLM analyzes structure, types, and semantics. Not just "this is a string" but "this is an email address, it's PII."
+    
+    Step 3: Relationship Detection - It infers foreign keys, identifies primary keys, understands how tables connect. This is where it goes beyond simple type detection.
+    
+    Step 4: dbt Rules Generation - It translates that understanding into executable dbt tests. Uniqueness checks, not-null constraints, relationship tests.
+    
+    Step 5: Validation - You review and deploy. The LLM suggests, you decide.
+    
+    The key insight: this isn't just automation. It's reasoning about your data structure, then codifying that reasoning into tests.
+    
+    This flow fits naturally between your ETL and your data quality checks. It doesn't replace either, it connects them.
   </aside>
 </section>
 
 <!-- Slide 9 -->
 <section>
-  <h2>Live demo</h2>
+  <h2>Demo walkthrough</h2>
   <ol>
-    <li>Schema inference</li>
-    <li>Evolution reasoning</li>
-    <li>dbt rule generation</li>
+    <li>Upload CSV/Excel file</li>
+    <li>Watch real-time schema inference</li>
+    <li>Explore interactive ER diagram</li>
+    <li>Chat: "Find potential data quality issues"</li>
+    <li>Export complete dbt project</li>
   </ol>
 
   <aside class="notes">
-    I'll switch to a live hosted instance now.
+    I'll switch to the live demo now. Watch for five specific things:
     
-    As you watch, focus on three things:
-    how the schema is inferred,
-    how schema changes are reasoned about,
-    and how dbt rules are generated.
+    First, I'll upload a CSV file. Notice it processes multi-sheet Excel files too.
     
-    Let's jump into the demo.
+    Second, watch the schema inference happen in real-time. You'll see the LLM response streaming in, not waiting for completion. This is important for large files.
     
-    DEMO NARRATION:
-    We start with raw or semi-structured data — the kind we usually see in pipelines.
-    First, notice the schema inference. This isn't just about data types; there's semantic understanding here.
-    Now I'll introduce a schema change. This is where humans usually pause and ask: "Is this breaking?"
-    Finally, look at the dbt rules that are generated. These are real dbt-compatible tests that run in existing workflows.
-    And importantly — your Python ETL stays exactly the same.
+    Third, the ER diagram. I can drag tables around, see relationships, understand foreign keys visually. This is built with GoJS and it's fully interactive.
     
-    If the demo slows down: Even without the UI, the key idea is that intent becomes executable checks.
+    Fourth, the chat interface. I'll ask it "Find potential data quality issues in this dataset." Watch how it analyzes the data and suggests specific dbt tests.
+    
+    Fifth, I'll export the complete dbt project. This isn't just YAML. It's a full project with setup scripts, profiles, models, and tests. You can run "bash setup_dbt.sh" and have a working dbt environment in seconds.
+    
+    DEMO NARRATION DURING EACH STEP:
+    Upload: "Here's a customer transactions file with multiple sheets."
+    Schema: "Notice it's not just detecting types. It's understanding semantics. 'email' is flagged as PII automatically."
+    ER Diagram: "See these relationships? It inferred that customer_id is a foreign key without being told."
+    Chat: "Let me ask it a question... and watch the response stream in real-time."
+    Export: "One click, and I have a production-ready dbt project with automated setup."
+    
+    If the demo slows down: The key insight is that this bridges the gap between raw data and production-ready data quality checks. No manual translation needed.
   </aside>
 </section>
 
 <!-- Slide 10 -->
 <section>
-  <h2>How Python engineers benefit</h2>
+  <h2>Real-world impact</h2>
   <ul>
-    <li>Fewer manual checks</li>
-    <li>Less schema drift</li>
-    <li>Earlier failures</li>
+    <li>Zero to dbt project in 2 minutes</li>
+    <li>Automatic PII detection</li>
+    <li>Visual schema exploration</li>
+    <li>Natural language to SQL</li>
   </ul>
 
   <aside class="notes">
-    From a Python engineer's point of view, this means less manual schema maintenance.
-    dbt tests don't lag behind reality, and failures are detected earlier.
+    Let me give you concrete examples of how this changes your workflow:
     
-    This is about leverage, not automation for automation's sake.
+    Scenario 1: New data source arrives. Traditionally, you'd spend an hour writing schema definitions, another hour creating dbt tests. With SchemaForge, upload the file, get a complete dbt project in 2 minutes. Not an exaggeration. Two minutes.
+    
+    Scenario 2: Compliance audit asks "where's our PII?" Instead of manually reviewing every column, upload your schemas. It automatically flags email, phone, SSN, credit card patterns. Privacy by default.
+    
+    Scenario 3: You inherit a complex database with 50 tables. Instead of reading documentation that's probably outdated, upload the schemas and see an interactive ER diagram. Drag tables around, understand relationships visually.
+    
+    Scenario 4: Business asks "can we add a uniqueness check on customer_email?" Instead of writing SQL, ask the chat: "Add uniqueness test for customer_email." It generates the dbt YAML immediately.
+    
+    This isn't about replacing your expertise. It's about eliminating the boring translation work so you can focus on the interesting problems.
   </aside>
 </section>
 
 <!-- Slide 11 -->
 <section>
-  <h2>Integration patterns</h2>
+  <h2>Run it anywhere</h2>
   <ul>
-    <li>Pre-commit schema checks</li>
-    <li>CI-driven dbt test generation</li>
-    <li>ETL validation hooks</li>
+    <li>Browser with OpenAI API</li>
+    <li>Laptop with Ollama (no internet)</li>
+    <li>CI/CD with custom LLM endpoint</li>
+    <li>Pre-commit hooks for validation</li>
   </ul>
 
   <aside class="notes">
-    In practice, this fits nicely into existing workflows.
+    One of the most interesting architectural decisions: extreme flexibility in deployment.
     
-    You can run SchemaForge as part of pre-commit checks,
-    inside CI to generate dbt tests,
-    or as validation hooks in Python ETL pipelines.
+    Option 1: Use it in your browser with OpenAI API. Standard approach, works great.
     
-    Everything is deterministic, reviewable, and Git-friendly.
+    Option 2: Run Ollama locally on your laptop. No API keys, no internet required, no data leaving your machine. Perfect for sensitive data or air-gapped environments. This is huge for enterprises with strict data policies.
+    
+    Option 3: Point it at your company's internal LLM endpoint. Many companies are running their own models. SchemaForge works with any OpenAI-compatible API.
+    
+    Option 4: Integrate into CI/CD. Generate dbt tests automatically when schemas change. Everything is deterministic and reviewable in Git.
+    
+    The pattern here is: you choose your deployment model based on your constraints. The tool adapts to your environment, not the other way around.
+    
+    This is what makes it production-ready for real companies with real compliance requirements.
   </aside>
 </section>
 
@@ -255,28 +288,43 @@
     </ul>
   
     <aside class="notes">
-      Python still owns ETL logic.
-      dbt still executes all checks.
-      Humans still own decisions and accountability.
+      Let me be clear about what this doesn't replace:
       
-      SchemaForge just reduces the translation burden.
+      Python still owns ETL logic. SchemaForge doesn't write your data pipelines.
+      
+      dbt still executes all checks. SchemaForge generates the rules, but dbt runs them.
+      
+      Humans still own decisions and accountability. The LLM suggests, you approve.
+      
+      SchemaForge just reduces the translation burden between intent and implementation.
+      
+      It's a tool, not a replacement for thinking. It's augmentation, not automation.
     </aside>
   </section>
   
 
-<!-- Slide 13 -->
+<!-- Slide 14 -->
 <section>
-  <h2>Connect & contribute</h2>
+  <h2>Try it yourself</h2>
+  <p class="accent">prudhvi1709.github.io/schemaforge</p>
   <p class="muted">Scan the QR · Connect · Contribute</p>
   <img src="assets/qr.png" alt="QR Code" style="max-width: 200px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   
   <aside class="notes">
-    This is an open-source project.
+    This is completely open source. MIT licensed.
     
-    The QR code links to the live demo and the GitHub repo.
-    Even if you don't use SchemaForge directly, the pattern itself is reusable.
+    You can try it right now at prudhvi1709.github.io/schemaforge. No signup, no installation. Just open it and upload a CSV.
     
-    Happy to take questions — especially around pipeline integration, trade-offs, and where this approach may not fit.
+    The GitHub repo has the full source code. It's a great reference if you're building similar tools.
+    
+    Even if you don't use SchemaForge directly, the pattern is reusable: LLMs for schema reasoning, streaming for UX, client-side for privacy.
+    
+    Happy to take questions, especially around:
+    - How this fits into existing pipelines
+    - Trade-offs between local and cloud LLMs
+    - Where this approach may not fit
+    - Technical implementation details
+    - Privacy and compliance considerations
     
     PERSONAL REMINDERS:
     Slow down.
@@ -284,6 +332,8 @@
     Let the demo breathe.
     Don't over-explain AI internals.
     Always anchor back to Python and dbt.
+    Emphasize the real-world scenarios.
+    Show enthusiasm but stay grounded.
   </aside>
 </section>
 
